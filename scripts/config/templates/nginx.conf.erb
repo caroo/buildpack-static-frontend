@@ -62,7 +62,7 @@ http {
     }
 
     if ($mobile_rewrite = perform) {
-      rewrite ^ http://m.pkw.de/ redirect;
+      rewrite ^ https://m.pkw.de$request_uri? redirect;
       break;
     }
 
