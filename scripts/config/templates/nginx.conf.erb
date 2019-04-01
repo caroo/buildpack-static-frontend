@@ -61,6 +61,14 @@ http {
       set $mobile_rewrite perform;
     }
 
+    if ($request_uri ~ "/registrierung\?confirmation_token") {
+      set $mobile_rewrite do_not_perform;
+    }
+
+    if ($request_uri ~ ".(css|js|png|gif)") {
+      set $mobile_rewrite do_not_perform;
+    }
+
     if ($mobile_rewrite = perform) {
       rewrite ^ https://m.pkw.de$request_uri? redirect;
       break;
