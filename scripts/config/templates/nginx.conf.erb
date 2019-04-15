@@ -65,6 +65,11 @@ http {
       set $mobile_rewrite do_not_perform;
     }
 
+    if ($request_uri ~ "/(parkplatz|meine-suchen|login|haendlerlogin|registrierung)$") {
+          set $mobile_rewrite do_not_perform;
+    }
+
+
     if ($request_uri ~ ".(css|js|png|gif)") {
       set $mobile_rewrite do_not_perform;
     }
