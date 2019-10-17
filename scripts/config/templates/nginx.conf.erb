@@ -65,6 +65,10 @@ http {
       set $mobile_rewrite do_not_perform;
     }
 
+    if ($request_uri ~ "/passwort/editieren\?reset_password_token") {
+      set $mobile_rewrite do_not_perform;
+    }
+
     if ($request_uri ~ "/(parkplatz|meine-suchen|login|haendlerlogin|registrierung)$") {
           set $mobile_rewrite do_not_perform;
     }
