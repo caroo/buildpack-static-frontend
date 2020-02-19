@@ -61,6 +61,10 @@ http {
       set $mobile_rewrite perform;
     }
 
+    if ($request_uri ~ ".*mobile=false.*") {
+      set $mobile_rewrite do_not_perform;
+    }
+
     if ($request_uri ~ "/registrierung\?confirmation_token") {
       set $mobile_rewrite do_not_perform;
     }
