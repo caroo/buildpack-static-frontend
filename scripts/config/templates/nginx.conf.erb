@@ -78,6 +78,10 @@ http {
           set $mobile_rewrite do_not_perform;
     }
 
+    if ($request_uri ~ "\/fahrzeuge\/financing") {
+        set $mobile_rewrite do_not_perform;
+    }
+
 
     if ($request_uri ~ ".(css|js|png|gif)") {
       set $mobile_rewrite do_not_perform;
