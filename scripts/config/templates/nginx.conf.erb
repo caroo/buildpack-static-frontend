@@ -74,7 +74,7 @@ http {
       set $mobile_rewrite do_not_perform;
     }
 
-    if ($request_uri ~ "/(parkplatz|meine-suchen|login|haendlerlogin|registrierung)$") {
+    if ($request_uri ~ "/(parkplatz|meine-suchen|login|haendlerlogin|registrierung|printView)$") {
           set $mobile_rewrite do_not_perform;
     }
 
