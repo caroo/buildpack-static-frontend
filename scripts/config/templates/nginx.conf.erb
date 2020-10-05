@@ -83,7 +83,7 @@ http {
     }
 
 
-    if ($request_uri ~ ".(css|js|png|gif|svg)") {
+    if ($request_uri ~ ".(css|js|png|gif|svg|jpg|jpeg|webp)") {
       set $mobile_rewrite do_not_perform;
     }
 
