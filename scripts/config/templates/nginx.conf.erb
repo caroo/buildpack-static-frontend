@@ -82,6 +82,14 @@ http {
         set $mobile_rewrite do_not_perform;
     }
 
+    if ($request_uri ~ "/profil") {
+      set $mobile_rewrite do_not_perform;
+    }
+
+    if ($request_uri ~ "/parkplatz/teilen") {
+      set $mobile_rewrite do_not_perform;
+    }
+
 
     if ($request_uri ~ ".(css|js|png|gif|svg|jpg|jpeg|webp)") {
       set $mobile_rewrite do_not_perform;
