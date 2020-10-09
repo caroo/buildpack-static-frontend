@@ -74,16 +74,12 @@ http {
       set $mobile_rewrite do_not_perform;
     }
 
-    if ($request_uri ~ "/(parkplatz|meine-suchen|login|haendlerlogin|registrierung|printView)$") {
+    if ($request_uri ~ "/(parkplatz|meine-suchen|login|haendlerlogin|registrierung|printView|profil)$") {
           set $mobile_rewrite do_not_perform;
     }
 
     if ($request_uri ~ "\/fahrzeuge\/financing") {
         set $mobile_rewrite do_not_perform;
-    }
-
-    if ($request_uri ~ "/profil") {
-      set $mobile_rewrite do_not_perform;
     }
 
     if ($request_uri ~ "/parkplatz/teilen") {
