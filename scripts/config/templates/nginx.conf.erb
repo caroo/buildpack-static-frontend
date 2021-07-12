@@ -66,7 +66,7 @@ http {
     <% end %>
     }
 
-  <% if clean_urls %>
+<% if clean_urls %>
     location ~ \.html$ {
       try_files $uri =404;
     }
@@ -122,6 +122,11 @@ http {
       return <%= hash['status'] || 301 %> <%= hash['url'] %>;
     }
   <% end %>
+
+  # allow post request methods
+  if ($request_method = POST ) {
+    return 301 https://$host$request_uri;
+  }
 
   }
 }
