@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'erb'
+require_relative 'lib/seo'
+
+TEMPLATE     = File.join(File.dirname(__FILE__), 'templates/sitemap.xml.erb')
+SEO_URLS  = 'src/seo-urls.yaml'
+SITEMAP_XML = 'dist/sitemap.xml'
+
+if File.exist?(SEO_URLS)
+  erb = ERB.new(File.read(TEMPLATE)).result(Seo.new(SEO_URLS).context)
+  File.write(SITEMAP_XML, erb)
+end
