@@ -127,8 +127,8 @@ http {
 
   # fallback redirects named match
   <% redirects.each do |path, hash| %>
-    location @<%= path %> {
-      return <%= hash['status'] || 301 %> <%= hash['url'] %>;
+    location <%= hash['raw'] ? '' : '@' %><%= path %> {
+      return <%= hash['status'] || 301 %> <%= hash['url'].start_with?('http') ? hash['url'] : "https://$host#{hash['url']}" %>;
     }
   <% end %>
 
