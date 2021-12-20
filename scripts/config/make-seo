@@ -5,8 +5,8 @@ require 'erb'
 require_relative 'lib/seo'
 
 TEMPLATE     = File.join(File.dirname(__FILE__), 'templates/sitemap.xml.erb')
-SEO_URLS  = 'src/seo-urls.yaml'
-SITEMAP_XML = 'dist/sitemap.xml'
+SEO_URLS  = File.join(ARGV[0],'src/seo-urls.yaml')
+SITEMAP_XML  = File.join(ARGV[0],'dist/sitemap.xml')
 
 if File.exist?(SEO_URLS)
   erb = ERB.new(File.read(TEMPLATE)).result(Seo.new(SEO_URLS).context)

@@ -31,3 +31,16 @@ mkdir -p $build_dir/config
 cp $bp_dir/scripts/config/templates/mime.types $build_dir/config
 
 mkdir -p $build_dir/logs
+
+echo "starting SEO"
+
+seo_env_vars=(MINIMUM_CARS_FOR_SITEMAP HEROKU_APP_NAME API_URL HOST)
+for env_var in ${seo_env_vars[*]}
+do
+  file_path=$env_dir/$env_var
+  if [ -f "$file_path" ]; then
+    export "$env_var=$(cat $file_path)"
+  fi
+done
+
+"${bp_dir}/scripts/config/make-seo" $build_dir
