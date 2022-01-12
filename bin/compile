@@ -34,7 +34,7 @@ mkdir -p $build_dir/logs
 
 echo "starting SEO"
 
-seo_env_vars=(MINIMUM_CARS_FOR_SITEMAP HEROKU_APP_NAME API_URL HOST)
+seo_env_vars=(MINIMUM_CARS_FOR_SITEMAP HEROKU_APP_NAME API_URL HOST BASE_ENV)
 for env_var in ${seo_env_vars[*]}
 do
   file_path=$env_dir/$env_var
