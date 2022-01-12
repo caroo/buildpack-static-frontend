@@ -50,6 +50,8 @@ class Seo
       result = cars_count >= minimum_cars
       puts "removing #{url} from sitemap(cars_count: #{cars_count})" unless result
       result
+    rescue StandardError
+      raise StandardError, "something wrong with server #{api_url}"
     end
   end
 
