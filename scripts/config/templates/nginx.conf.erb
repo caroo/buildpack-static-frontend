@@ -137,6 +137,20 @@ http {
     }
   <% end %>
 
+  <% if production_redirect %>
+    set $production_redirect 1;
+    <% whitelisted_ips.each do |ip| %>
+      if ($http_x_forwarded_for = <%= ip %>) {
+        set $production_redirect 0;
+      }
+    <% end %>
+
+    if ($production_redirect = 1){
+      return 301 https://suche.pkw.de/fahrzeuge;
+    }
+
+  <% end %>
+
   # allow post request methods
   if ($request_method = POST ) {
     return 301 https://$host$request_uri;
