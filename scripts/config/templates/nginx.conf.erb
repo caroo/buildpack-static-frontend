@@ -178,6 +178,9 @@ http {
       resolver 8.8.8.8;
 
       if ($prerender = 1) {
+        sub_filter_once off;
+        sub_filter_types *;
+        sub_filter "&amp;" ";";
         #setting prerender as a variable forces DNS resolution since nginx caches IPs and doesnt play well with load balancing
         set $prerender "service.prerender.io";
         rewrite .* /https://$host$request_uri? break;
