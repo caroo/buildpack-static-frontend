@@ -9,7 +9,7 @@ env_dir=$3
 bp_dir=$(dirname $(dirname $0))
 
 current_dir=$(pwd)
-nginx_file=$(${bp_dir}/scripts/build_ngx_ruby.sh | tail -n 1)
+nginx_file=$(${bp_dir}/scripts/build_ngx_mruby.sh | tail -n 1)
 cd $current_dir
 
 mkdir -p $build_dir/bin
