@@ -23,6 +23,8 @@ BUILD_OPTS="--prefix=${PWD}/build/nginx"
 BUILD_OPTS+=' --with-http_stub_status_module --with-stream --without-stream_access_module --with-cc-opt=-fno-common'
 # Our custom addition, to enable the SSL module.
 BUILD_OPTS+=' --with-http_ssl_module'
+# prerender solution
+BUILD_OPTS+=' --with-http_sub_module'
 
 NGINX_CONFIG_OPT_ENV="${BUILD_OPTS}" ./build.sh
 make install
