@@ -45,4 +45,4 @@ ARCHIVE_PATH="${OUTPUT_DIR}/nginx-${NGINX_VERSION}-ngx_mruby-${NGX_MRUBY_VERSION
 
 tar -czf "${ARCHIVE_PATH}" nginx
 
-echo "Archive saved to: ${ARCHIVE_PATH}"
+echo "${ARCHIVE_PATH}"
