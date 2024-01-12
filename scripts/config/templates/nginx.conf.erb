@@ -37,6 +37,11 @@ http {
   #Must read the body in 5 seconds.
   client_body_timeout 5;
 
+  map $arg_awc $cookie_value {
+    default "";
+    "~.*" "awc=$arg_awc; Max-Age=31536000; Path=/; Domain=.pkw.de; Secure";
+  }
+
   server {
     listen <%= port %> reuseport;
     charset <%= encoding %>;
@@ -56,6 +61,8 @@ http {
   <% end %>
 
     mruby_post_read_handler /app/bin/config/lib/ngx_mruby/headers.rb cache;
+
+    add_header Set-Cookie $cookie_value always;
 
     location / {
       mruby_set $fallback /app/bin/config/lib/ngx_mruby/routes_fallback.rb cache;
