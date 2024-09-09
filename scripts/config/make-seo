@@ -6,6 +6,12 @@ require_relative 'lib/seo'
 
 TEMPLATE     = File.join(File.dirname(__FILE__), 'templates/sitemap.xml.erb')
 SEO_URLS  = File.join(ARGV[0],'src/seo-urls.yaml')
+REDIRECT_SITEMAP  = File.join(ARGV[0],'src/sitemap-redirected-urls.txt')
+
+if File.exist?(REDIRECT_SITEMAP)
+  FileUtils.cp(REDIRECT_SITEMAP, File.join(ARGV[0],'dist/sitemap-redirected-urls.txt'))
+end
+
 SITEMAP_XML  = File.join(ARGV[0],'dist/sitemap.xml')
 
 if File.exist?(SEO_URLS) && (ENV['BASE_ENV'] == 'production' || ENV['FORCE_SITEMAP'])
