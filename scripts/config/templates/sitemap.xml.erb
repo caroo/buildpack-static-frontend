@@ -1,8 +1,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <% urls.each do |url| %>
-    <url>
-      <loc><%= url %></loc>
-      <changefreq>daily</changefreq>
-    </url>
+  <% if defined?(urls) %>
+    <% urls.each do |url| %>
+      <url>
+        <loc><%= url %></loc>
+        <changefreq>daily</changefreq>
+      </url>
+    <% end %>
   <% end %>
 </urlset>
