@@ -15,10 +15,8 @@ end
 SITEMAP_XML  = File.join(ARGV[0],'dist/sitemap.xml')
 
 # Empty sitemap.xml
-if File.exist?(SEO_URLS) && (ENV['BASE_ENV'] == 'production' || ENV['FORCE_SITEMAP'])
-  erb = ERB.new(File.read(TEMPLATE)).result()
-  File.write(SITEMAP_XML, erb)
-end
+erb = ERB.new(File.read(TEMPLATE)).result()
+File.write(SITEMAP_XML, erb)
 
 # if File.exist?(SEO_URLS) && (ENV['BASE_ENV'] == 'production' || ENV['FORCE_SITEMAP'])
 #   erb = ERB.new(File.read(TEMPLATE)).result(Seo.new(SEO_URLS).context)
