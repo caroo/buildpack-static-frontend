@@ -137,6 +137,8 @@ http {
     }
   <% end %>
 
+  include redirects_to_autokatalog.conf;
+
   # fallback redirects named match
   <% redirects.each do |path, hash| %>
     location <%= hash['raw'] ? '' : '@' %><%= path %> {

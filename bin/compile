@@ -29,7 +29,7 @@ echo "-----> Installed nginx ${nginx_version} to /app/bin"
 
 mkdir -p $build_dir/config
 cp $bp_dir/scripts/config/templates/mime.types $build_dir/config
-
+cp $bp_dir/scripts/config/templates/redirects_to_autokatalog.conf $build_dir/config
 mkdir -p $build_dir/logs
 
 echo "starting SEO"
